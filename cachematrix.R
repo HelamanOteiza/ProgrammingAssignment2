@@ -1,7 +1,8 @@
-## Put comments here that give an overall description of what your
-## functions do
+## it may take too long to compute the Matrix inverse, especially if it has to be computed repeatedly, 
+## For this, is beneficts to caching the inverse of the matrix rather than compute it repeatedly.
+## Then, we have two function that can we use to create a special object that stores a matrix and cache its inverse
 
-## Write a short comment describing this function
+## Whit this function we can create an special object ("Matrix") that can stored on cache its inverse
 
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
@@ -15,7 +16,8 @@ makeCacheMatrix <- function(x = matrix()) {
   list(set = set, get = get, setinverse = setinverse, getinverse= getinverse)
 }
 
-## Write a short comment describing this function
+## Here, the function "cacheSolve" computes the inverse of the Matrix (created with the first function)
+## If the inverse of the Matrix has already been calculated and it has no changes then you should retrieve the inverse of the cache
 
 cacheSolve <- function(x, ...) {
   inv <- x$getinverse()
